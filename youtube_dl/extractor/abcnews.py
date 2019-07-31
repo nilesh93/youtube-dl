@@ -15,10 +15,13 @@ class AbcNewsVideoIE(AMPIE):
     IE_NAME = 'abcnews:video'
     _VALID_URL = r'''(?x)
                     https?://
-                        abcnews\.go\.com/
                         (?:
-                            [^/]+/video/(?P<display_id>[0-9a-z-]+)-|
-                            video/embed\?.*?\bid=
+                            abcnews\.go\.com/
+                            (?:
+                                [^/]+/video/(?P<display_id>[0-9a-z-]+)-|
+                                video/embed\?.*?\bid=
+                            )|
+                            fivethirtyeight\.abcnews\.go\.com/video/embed/\d+/
                         )
                         (?P<id>\d+)
                     '''
@@ -66,7 +69,7 @@ class AbcNewsIE(InfoExtractor):
     _TESTS = [{
         'url': 'http://abcnews.go.com/Blotter/News/dramatic-video-rare-death-job-america/story?id=10498713#.UIhwosWHLjY',
         'info_dict': {
-            'id': '10498713',
+            'id': '10505354',
             'ext': 'flv',
             'display_id': 'dramatic-video-rare-death-job-america',
             'title': 'Occupational Hazards',
@@ -79,7 +82,7 @@ class AbcNewsIE(InfoExtractor):
     }, {
         'url': 'http://abcnews.go.com/Entertainment/justin-timberlake-performs-stop-feeling-eurovision-2016/story?id=39125818',
         'info_dict': {
-            'id': '39125818',
+            'id': '38897857',
             'ext': 'mp4',
             'display_id': 'justin-timberlake-performs-stop-feeling-eurovision-2016',
             'title': 'Justin Timberlake Drops Hints For Secret Single',
